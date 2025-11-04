@@ -1,6 +1,7 @@
 package it.unibo.collections.sets;
 
 import java.util.Collection;
+import java.util.TreeSet;
 
 /**
  * Example class using {@link java.util.Set}.
@@ -41,5 +42,31 @@ public final class UseSet {
         /*
          * 6) Verifies whether all the numbers left in the set are even
          */
+        final int NUM_STRINGS_TO_ADD = 20;
+        StringBuilder singleOutput = new StringBuilder();
+        TreeSet<String> stringTreeSet = new TreeSet<String>();
+        for (int i = 1; i <= NUM_STRINGS_TO_ADD ; i++){
+            stringTreeSet.add(Integer.toString(i));
+            singleOutput.append("This is the string: ").append(Integer.toString(i)).append("\n");
+        }
+        System.out.println(singleOutput);
+        singleOutput = new StringBuilder(); //this specific new instance is needed to empty the StrBuilder
+        /* essentialy does the same thing of a for that check the condition Integer.parseInt(n) % 3 != 0
+         * and then removes those numbers
+         */
+        stringTreeSet.removeIf(n -> Integer.parseInt(n) % 3 != 0);
+        for(String s : stringTreeSet){
+            singleOutput.append("This is a divisible number by 3: ").append(s).append("\n");
+        }
+        System.out.println(singleOutput);
+        singleOutput = new StringBuilder();
+        for (String s : stringTreeSet){
+            if(Integer.parseInt(s) % 2 == 0){
+                singleOutput.append("this number is even: ").append(s).append("\n");
+            }
+        }
+        System.out.println(singleOutput);
+
+
     }
 }
