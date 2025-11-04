@@ -1,5 +1,6 @@
 package it.unibo.collections.comparators;
 
+import java.util.Comparator;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -32,5 +33,14 @@ public final class UseSetWithOrder {
         /*
          * 3) Prints the set, which must be ordered
          */
+        TreeSet<String> orderedTreeSet = new TreeSet<>();
+        Comparator<String> comparator = new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return 0;
+            }
+        };
+
+
     }
 }
