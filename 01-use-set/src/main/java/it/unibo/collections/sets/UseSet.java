@@ -51,12 +51,15 @@ public final class UseSet {
         }
         System.out.println(singleOutput);
         singleOutput = new StringBuilder(); //this specific new instance is needed to empty the StrBuilder
-        /* essentialy does the same thing of a for that check the condition Integer.parseInt(n) % 3 != 0
-         * and then removes those numbers
-         */
-        stringTreeSet.removeIf(n -> Integer.parseInt(n) % 3 != 0);
+        TreeSet<String> tempSet = new TreeSet<String>(); // can't remove things in a foreach
+        for (String s : stringTreeSet){
+            if (Integer.parseInt(s) % 3 != 0){
+                tempSet.add(s);
+            }
+        }
+        stringTreeSet = tempSet;
         for(String s : stringTreeSet){
-            singleOutput.append("This is a divisible number by 3: ").append(s).append("\n");
+            singleOutput.append("This is NOT a divisible number by 3 : ").append(s).append("\n");
         }
         System.out.println(singleOutput);
         singleOutput = new StringBuilder();
